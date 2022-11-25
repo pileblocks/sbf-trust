@@ -185,7 +185,7 @@ export default {
                      sleep(duration).then(() => poll(promiseFn, duration)))
         poll(() => new Promise(() => {
             this.reloadGame(this.$store.state.Game.account);
-        }), 6000)
+        }), 2000)
 
     }
 }

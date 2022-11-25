@@ -14,7 +14,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Not Convinced?</a></li>
-                        <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Read Rules</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="#game-rules">Read Rules</a></li>
                         <li class="nav-item"><sign-in-box/></li>
                     </ul>
                 </div>
@@ -54,17 +54,17 @@
                                 <div class="col-md-6 mb-5">
                                     <!-- Feature item-->
                                     <div class="text-center">
-                                        <i class="bi-phone icon-feature text-gradient d-block mb-3"></i>
-                                        <h3 class="font-alt">Device Mockups</h3>
-                                        <p class="text-muted mb-0">Ready to use HTML/CSS device mockups, no Photoshop required!</p>
+                                        <i class="bi-calculator icon-feature text-gradient d-block mb-3"></i>
+                                        <h3 class="font-alt">100% Smart</h3>
+                                        <p class="text-muted mb-0">Outsmart our contracts and others and grab $$$</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-5">
                                     <!-- Feature item-->
                                     <div class="text-center">
-                                        <i class="bi-camera icon-feature text-gradient d-block mb-3"></i>
-                                        <h3 class="font-alt">Flexible Use</h3>
-                                        <p class="text-muted mb-0">Put an image, video, animation, or anything else in the screen!</p>
+                                        <i class="bi-person-bounding-box icon-feature text-gradient d-block mb-3"></i>
+                                        <h3 class="font-alt">Untraceable</h3>
+                                        <p class="text-muted mb-0">We don't keep any of your data, stay SAFU</p>
                                     </div>
                                 </div>
                             </div>
@@ -72,9 +72,9 @@
                                 <div class="col-md-6 mb-5 mb-md-0">
                                     <!-- Feature item-->
                                     <div class="text-center">
-                                        <i class="bi-gift icon-feature text-gradient d-block mb-3"></i>
-                                        <h3 class="font-alt">Free to Use</h3>
-                                        <p class="text-muted mb-0">As always, this theme is free to download and use for any purpose!</p>
+                                        <i class="bi-life-preserver icon-feature text-gradient d-block mb-3"></i>
+                                        <h3 class="font-alt">Last Chance</h3>
+                                        <p class="text-muted mb-0">What else on the market can give you anything comparable?</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -82,7 +82,7 @@
                                     <div class="text-center">
                                         <i class="bi-patch-check icon-feature text-gradient d-block mb-3"></i>
                                         <h3 class="font-alt">Open Source</h3>
-                                        <p class="text-muted mb-0">Since this theme is MIT licensed, you can use it commercially!</p>
+                                        <p class="text-muted mb-0">Explore, hack, duplicate, build upon!</p>
                                     </div>
                                 </div>
                             </div>
@@ -90,37 +90,38 @@
                     </div>
                     <div class="col-lg-4 order-lg-0">
                         <!-- Features section device mockup-->
-                        <div class="features-device-mockup">
-                            <div class="device-wrapper">
-                            </div>
-                        </div>
+                        <img src="~@/assets/img/sam-in-suite.png" class="img-fluid" />
                     </div>
                 </div>
             </div>
         </section>
         <!-- Basic features section-->
-        <section class="bg-light">
+        <section class="bg-light" id="game-rules">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
                     <div class="col-12">
                         <h2 class="display-4 lh-1 mb-4">Game Rules</h2>
-                        <p class="lead fw-normal text-muted mb-3">This section is perfect for featuring some information about your application, why it was built, the problem it solves, or anything else! There's plenty of space for text here, so don't worry about writing too much.</p>
-                        <p class="lead fw-normal text-muted mb-0 mb-md-5 mb-lg-0">This section is perfect for featuring some information about your application, why it was built, the problem it solves, or anything else! There's plenty of space for text here, so don't worry about writing too much.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Basic features section-->
-        <section class="bg-light pt-0 pt-md-5">
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
-                    <div class="col-12 col-lg-5 order-2 order-lg-1">
-                        <h2 class="display-4 lh-1 mb-4">Enter a new age of web design</h2>
-                        <p class="lead fw-normal text-muted mb-5 mb-lg-0">This section is perfect for featuring some information about your application, why it was built, the problem it solves, or anything else! There's plenty of space for text here, so don't worry about writing too much.</p>
-                    </div>
-                    <div class="col-sm-8 col-md-6 order-1 order-lg-2 mb-5 mb-md-0">
-                        <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="https://source.unsplash.com/u8Jn2rzYIps/900x900" alt="..." /></div>
+                        <p class="lead fw-normal mb-3">
+                            1. You deposit your EVERs, claim whenever you want and receive EVERs directly to your wallet. No TIP3. No NFT. No shit.
+                        </p>
+                        <p class="lead fw-normal mb-3">
+                            2. It is obviously <b>not possible</b> to return your deposit (say hello to CEX). You earn <b>only</b> by claiming. This is reflected in the UI. Your farming value is nothing. Your depo is nothing. You earn only what you claim.
+                        </p>
+                        <p class="lead fw-normal mb-3">
+                            3. You receive 10% of your depo each minute. With such a crazy ARR % you can recover 100 EVER and grab extra 50% as a premium until game completes.
+                        </p>
+                        <p class="lead fw-normal mb-3">
+                            4. After 30 minutes each game is blocked by any random reason (SEC, sudden audit, hack attempt). You won't be able to interact with the game after this. Those who've managed to claim tokens are good. Others are rug pulled.
+                        </p>
+                        <p class="lead fw-normal mb-3">
+                            5. Since this is a 100% crypto project, it is buggy as hell. It is so buggy that we even provide an information about the error probability. When an error happens, just forget about your depo. The game gets blocked, and all depos run away to our shady wallets.
+                        </p>
+                        <p class="lead fw-normal mb-3">
+                            6. This game is a crunchy WEB 3.0 garbage to the extent that we even do not know when to end the game. A player who completes the game <b>receives 1 EVER</b> as a premium. Yes, you literally can earn by clicking COMPLETE.
+                        </p>
+                        <p class="lead fw-normal mb-3">
+                            7. The game has a referral program. If you invite a friend, 15% of EACH their depo <b>directly and instantly</b> will go to your wallet. No limits. No shit. This lasts until somebody else sends them their referral link. So you'd better sugar-coat your story about the game and be pushy spamming your friends like hell.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -129,11 +130,7 @@
         <!-- App badge section-->
         <section class="bg-gradient-primary-to-secondary" id="download">
             <div class="container px-5">
-                <h2 class="text-center text-white font-alt mb-4">Get the app now!</h2>
-                <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
-                    <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="/assets/img/google-play-badge.svg" alt="..." /></a>
-                    <a href="#!"><img class="app-badge" src="/assets/img/app-store-badge.svg" alt="..." /></a>
-                </div>
+                <h2 class="text-center text-white font-alt mb-4">Enough for reading. Start playing now!</h2>
             </div>
         </section>
         <!-- Footer-->
