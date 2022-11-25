@@ -108,7 +108,7 @@
                             2. It is obviously <b>not possible</b> to return your deposit (say hello to CEX). You earn <b>only</b> by claiming. This is reflected in the UI. Your farming value is nothing. Your depo is nothing. You earn only what you claim.
                         </p>
                         <p class="lead fw-normal mb-3">
-                            3. You receive 10% of your depo each minute. With such a crazy ARR % you can recover 100 EVER and grab extra 50% as a premium until game completes.
+                            3. You receive 10% of your depo each minute. With such a crazy ARR % you can recover 100 EVER and grab extra 50% as a premium until game completes. It is clearly not possible though to claim more than the game pot has (hi my beloved Ponzi scheme).
                         </p>
                         <p class="lead fw-normal mb-3">
                             4. After 30 minutes each game is blocked by any random reason (SEC, sudden audit, hack attempt). You won't be able to interact with the game after this. Those who've managed to claim tokens are good. Others are rug pulled.
@@ -121,6 +121,9 @@
                         </p>
                         <p class="lead fw-normal mb-3">
                             7. The game has a referral program. If you invite a friend, 15% of EACH their depo <b>directly and instantly</b> will go to your wallet. No limits. No shit. This lasts until somebody else sends them their referral link. So you'd better sugar-coat your story about the game and be pushy spamming your friends like hell.
+                        </p>
+                        <p class="lead fw-normal mb-3">
+                            8. You can add +10% to your farming speed. This costs 10 EVER.
                         </p>
                     </div>
                 </div>
