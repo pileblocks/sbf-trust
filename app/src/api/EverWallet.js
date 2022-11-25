@@ -78,7 +78,7 @@ export const EverWalletApi = {
                 .claimTokens({})
                 .send({
                     from: pAddress,
-                    amount: '200000000',
+                    amount: '500000000',
                     bounce: true,
                 });
         },

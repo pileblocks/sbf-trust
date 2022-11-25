@@ -1,7 +1,7 @@
 export const gameApi = {
     getFarmingHash: async function (gameAccount) {
         let result = await gameAccount.runLocal("getFarmingHash", {});
-        return result.decoded.output._farmingHash;
+        return result.decoded.output._farmingHash.padStart(64, '0');
     },
     getInfo: async function (gameAccount) {
 
