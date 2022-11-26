@@ -3,6 +3,8 @@ import {Address, Contract, ProviderRpcClient} from "everscale-inpage-provider";
 import {LOADING_STATUS_PROVIDER_LOADED, LOADING_STATUS_PROVIDER_NOT_LOADED} from "@/AppConst";
 import {PBGameContract} from "@/contract_wrappers/PBGame";
 import {FarmingWalletContract} from "@/contract_wrappers/FarmingWallet";
+import {Account} from "@tonclient/appkit";
+import {signerNone} from "@tonclient/core";
 
 export const EverWalletApi = {
 
@@ -25,7 +27,13 @@ export const EverWalletApi = {
     isActiveContract: async function (ever, contractAddress) {
         return JSON.stringify(await ever.getFullContractState({address: contractAddress})) !== "{}";
     },
-
+    initGame: async function (client, gameAddress) {
+        return new Account(PBGameContract, {
+                address: gameAddress,
+                client,
+                signer: signerNone(),
+            });
+    },
     game: {
 
         deployFarmingWallet: async function (currentGameAddress, playerAddress, affiliateAddress) {

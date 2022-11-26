@@ -12,7 +12,8 @@ export const Game = {
       balance: 0,
       account: null,
       computedStatus: "ACTIVE",
-      isLoading: false
+      isLoading: false,
+      provider: null
   },
   namespaced: true,
 
@@ -43,7 +44,10 @@ export const Game = {
       },
       updateIsLoading(state, newLoading) {
           state.isLoading = newLoading;
-      }
+      },
+      updateProvider(state, newProvider) {
+          state.provider = newProvider;
+      },
   },
     getters: {
          gameComputedStatus: (state) => () => {

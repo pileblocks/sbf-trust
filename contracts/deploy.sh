@@ -43,7 +43,7 @@ NONCE=$(date +%s)
 echo $GAME_CODE
 
 echo "Deploying game host..."
-GAME_HOST=$(everdev contract deploy GameHost.abi.json -n $NWK -s $SIGNER -v 1000000000000 -d _randomNonce:$NONCE -i _indexCode:\"$INDEX_CODE\",_gameCode:\"$GAME_CODE\",_farmingCode:\"$FARMING_CODE\" | grep "Address:" | cut -d " " -f 4)
+GAME_HOST=$(everdev contract deploy GameHost.abi.json -n $NWK -s $SIGNER -v 100000000000 -d _randomNonce:$NONCE -i _indexCode:\"$INDEX_CODE\",_gameCode:\"$GAME_CODE\",_farmingCode:\"$FARMING_CODE\" | grep "Address:" | cut -d " " -f 4)
 echo "Host address: ${GAME_HOST}"
 
 TEMP=$(everdev contract run GameHost.abi.json -a $GAME_HOST -n $NWK -s $SIGNER forceStartNewGame -i startTime:0)

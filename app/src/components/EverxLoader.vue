@@ -28,14 +28,6 @@ export default {
                     signer: signerNone(),
                 });
         },
-        initGame: async function (gameAddress) {
-            let client = this.everx;
-            return new Account(PBGameContract, {
-                    address: gameAddress,
-                    client,
-                    signer: signerNone(),
-                });
-        },
         getPlayerAccounts: async function (gameAccount) {
             let client = this.everx;
 
@@ -85,7 +77,8 @@ export default {
             await indexAccount.free();
             return await gameIndexApi.getGameAddress(indexAccount);
         },
-        reloadGame: async function (gameAccount) {
+        reloadGame: async function () {
+            let gameAccount = this.$store.state.Game.account;
             this.$store.commit("Game/updateBalance", parseInt(await gameAccount.getBalance()))
             let gameInfo = await gameApi.getInfo(gameAccount);
             this.$store.commit("Game/updateGameInfo", gameInfo);
@@ -94,53 +87,7 @@ export default {
             this.$store.commit("Game/updateComputedStatus", compStatus);
             await this.$store.dispatch("Player/updateJoinedDepo");
             console.log("Data reloaded");
-        },
-
-        initSubscription: async function(ever, gameAddress) {
-            const game = new ever.Contract(PBGameContract.abi, gameAddress);
-            const subscription = new ever.Subscriber();
-            subscription
-                .transactions(this.$store.state.Game.account.address)
-                .on(async (data) => {
-                    for (const tr of data.transactions) {
-                        const transactionEvents = await game.decodeTransactionEvents({
-                            transaction: tr
-                        })
-                        for (const trEvent of transactionEvents) {
-                            switch (trEvent.event) {
-                                case "OperationCompleted":
-                                    await this.operationCompletedHandler(trEvent.data);
-                                    break;
-                            }
-                        }
-                    }
-                });
-
-        },
-        operationCompletedHandler: async function (op) {
-            console.log(op);
-            if (op.player.toString() === this.$store.state.Wallet.address) {
-                this.$store.commit("Game/updateIsLoading", false);
-            }
-            switch (op.name) {
-                case "GameCompleted":
-                    window.location.href = '/';
-                    break;
-                case "GameCompletedBug":
-                    window.location.href = '/';
-                    break;
-                case "PlayerJoined":
-                    if (op.player.toString() === this.$store.state.Wallet.address) {
-                        this.$store.commit("Player/updateJoined", true);
-                    }
-                    break;
-                case "TokensAdded":
-                    if (op.player.toString() === this.$store.state.Wallet.address) {
-                        this.$store.commit("Player/updateDepo", true);
-                    }
-                    break;
-            }
-        },
+        }
 
     },
 
@@ -159,6 +106,8 @@ export default {
         const ever = new ProviderRpcClient({
         });
 
+        this.$store.commit("Game/updateProvider", ever);
+
         let isInstalled = await EverWalletApi.isWorking(ever) === LOADING_STATUS_PROVIDER_LOADED;
         this.$store.commit("Wallet/updateIsInstalled", isInstalled);
 
@@ -171,12 +120,10 @@ export default {
             gameAddress = await gameHostApi.getCurrentGameAddress(hostAccount);
         }
         console.log(`Game: ${gameAddress}`);
-        let gameAccount = await this.initGame(gameAddress);
+        let gameAccount = await EverWalletApi.initGame(this.everx, gameAddress);
         this.$store.commit("Game/updateAccount", gameAccount);
 
-        await this.initSubscription(ever, gameAddress);
-
-        await this.reloadGame(this.$store.state.Game.account);
+        await this.reloadGame();
 
         this.$store.commit("Game/updateIsLoading", false);
 
@@ -184,7 +131,7 @@ export default {
         let poll = (promiseFn, duration) => promiseFn().then(
                      sleep(duration).then(() => poll(promiseFn, duration)))
         poll(() => new Promise(() => {
-            this.reloadGame(this.$store.state.Game.account);
+            this.reloadGame();
         }), 2000)
 
     }
