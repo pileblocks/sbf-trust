@@ -5,7 +5,7 @@ Video:
 https://youtu.be/0jxntEHrcgk
 
 Website:
-https://sb-trust.com
+https://sbf-trust.com
 
 # Build instructions
 
