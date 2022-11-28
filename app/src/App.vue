@@ -74,7 +74,7 @@
                                     <div class="text-center">
                                         <i class="bi-life-preserver icon-feature text-gradient d-block mb-3"></i>
                                         <h3 class="font-alt">Last Chance</h3>
-                                        <p class="text-muted mb-0">What else on the market can give you anything comparable?</p>
+                                        <p class="text-muted mb-0">WHO bloody hell ELSE on the market can give you anything comparable?</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -101,28 +101,28 @@
                 <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
                     <div class="col-12">
                         <h2 class="display-4 lh-1 mb-4">Game Rules</h2>
-                        <p class="lead fw-normal mb-3">
+                        <p class="mb-3">
                             1. You deposit your EVERs, claim whenever you want and receive EVERs directly to your wallet. No TIP3. No NFT. No shit.
                         </p>
-                        <p class="lead fw-normal mb-3">
+                        <p class="mb-3">
                             2. It is obviously <b>not possible</b> to return your deposit (say hello to CEX). You earn <b>only</b> by claiming. This is reflected in the UI. Your farming value is nothing. Your depo is nothing. You earn only what you claim.
                         </p>
-                        <p class="lead fw-normal mb-3">
+                        <p class="mb-3">
                             3. You receive 10% of your depo each minute. With such a crazy ARR % you can recover 100 EVER and grab extra 50% as a premium until game completes. It is clearly not possible though to claim more than the game pot has (hi my beloved Ponzi scheme).
                         </p>
-                        <p class="lead fw-normal mb-3">
+                        <p class="mb-3">
                             4. After 30 minutes each game is blocked by any random reason (SEC, sudden audit, hack attempt). You won't be able to interact with the game after this. Those who've managed to claim tokens are good. Others are rug pulled.
                         </p>
-                        <p class="lead fw-normal mb-3">
+                        <p class="mb-3">
                             5. Since this is a 100% crypto project, it is buggy as hell. It is so buggy that we even provide an information about the error probability. When an error happens, just forget about your depo. The game gets blocked, and all depos run away to our shady wallets.
                         </p>
-                        <p class="lead fw-normal mb-3">
+                        <p class="mb-3">
                             6. This game is a crunchy WEB 3.0 garbage to the extent that we even do not know when to end the game. A player who completes the game <b>receives 1 EVER</b> as a premium. Yes, you literally can earn by clicking COMPLETE.
                         </p>
-                        <p class="lead fw-normal mb-3">
+                        <p class="mb-3">
                             7. The game has a referral program. If you invite a friend, 15% of EACH their depo <b>directly and instantly</b> will go to your wallet. No limits. No shit. This lasts until somebody else sends them their referral link. So you'd better sugar-coat your story about the game and be pushy spamming your friends like hell.
                         </p>
-                        <p class="lead fw-normal mb-3">
+                        <p class="mb-3">
                             8. You can add +10% to your farming speed. This costs 10 EVER.
                         </p>
                     </div>
