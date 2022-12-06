@@ -10,7 +10,7 @@ import "./structures/PBStructs.sol";
 
 import "./FarmingWallet.sol";
 import "./PBConstants.sol";
-
+import "./libraries/ExpMath.sol";
 
 contract PBGame is PBConstants, GameEvents {
 
@@ -24,6 +24,7 @@ contract PBGame is PBConstants, GameEvents {
     uint8 errorRate;
     address gameHost;
     uint64 gameCompleted;
+    uint64 lastClaimTime;
     uint128 initialBalance;
 
     modifier onlyHost() {
@@ -46,6 +47,7 @@ contract PBGame is PBConstants, GameEvents {
         initialBalance = msg.value;
         status = STATUS_GAME_ACTIVE;
         errorRate = _errorRate;
+        lastClaimTime = now;
 
     }
 
@@ -96,8 +98,10 @@ contract PBGame is PBConstants, GameEvents {
         }
     }
 
-    function checkStatus(uint128 claimAmount) external view responsible returns (uint8) {
+    function checkStatus(address ownerAddress, uint128 claimAmount) external view responsible returns (uint8) {
+        require(msg.sender == getFarmingAddress(ownerAddress), WALLET_DOES_NOT_MATCH_OWNER);
         if (now > gameStartTime + 30 * 60 || address(this).balance < claimAmount) {
+            emit OperationCompleted("TokensRemoved", ownerAddress, status, now, 0);
             return{value: 0, flag: 64} STATUS_GAME_COMPLETED;
         }
         return{value: 0, flag: 64} status;
@@ -107,7 +111,9 @@ contract PBGame is PBConstants, GameEvents {
         require(msg.sender == getFarmingAddress(ownerAddress), WALLET_DOES_NOT_MATCH_OWNER);
         require(status == STATUS_GAME_ACTIVE, WRONG_GAME_STATUS);
         require(now <= gameStartTime + 30 * 60, GAME_COMPLETED);
+        require(msg.value >= calculateClaimCost() - MIN_WALLET_BALANCE / 2, WRONG_CLAIM_COST);
         tvm.accept();
+        lastClaimTime = now;
         if (isShitHappened()) {
             completeGameWithError();
         }
@@ -118,6 +124,13 @@ contract PBGame is PBConstants, GameEvents {
             emit OperationCompleted("TokensRemoved", ownerAddress, status, now, amount);
             ownerAddress.transfer({value: amount});
         }
+    }
+
+    function calculateClaimCost() public view returns (uint128 claimCost){
+        uint128 currentCost = ExpMath.log_2(1 + now - lastClaimTime) * 1 ton;
+        if (currentCost < MAX_CLAIM_COST)
+            return MAX_CLAIM_COST - currentCost;
+        return MIN_WALLET_BALANCE * 2;
     }
 
     function completeGameWithError() private {
@@ -218,7 +231,8 @@ contract PBGame is PBConstants, GameEvents {
             gamePot,
             errorRate,
             gameCompleted,
-            initialBalance
+            initialBalance,
+            calculateClaimCost()
         );
     }
 

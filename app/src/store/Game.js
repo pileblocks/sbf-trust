@@ -1,4 +1,4 @@
-import {GAME_ACTIVE} from "@/AppConst";
+import {CLAIM_COST_MAX, GAME_ACTIVE} from "@/AppConst";
 
 export const Game = {
   state: {
@@ -13,7 +13,8 @@ export const Game = {
       account: null,
       computedStatus: "ACTIVE",
       isLoading: false,
-      provider: null
+      provider: null,
+      claimCost: CLAIM_COST_MAX
   },
   namespaced: true,
 
@@ -26,6 +27,7 @@ export const Game = {
           state.errorRate = gameInfo.errorRate;
           state.gameCompleted = gameInfo.gameCompleted;
           state.initialBalance = gameInfo.initialBalance;
+          state.claimCost = gameInfo.claimCost;
       },
       updateBalance(state, newBalance) {
           state.balance = newBalance;

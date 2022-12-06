@@ -98,8 +98,11 @@ export default {
         let hostAccount = await this.initHost();
         this.$store.commit("Game/updateLastId", await gameHostApi.getCurrentGameId(hostAccount));
 
-        if (this.$route.params.affiliateAddress !== undefined) {
+        if (this.$route.params.affiliateAddress && this.$route.params.affiliateAddress.length === 66) {
             localStorage.setItem("affiliateAddress", this.$route.params.affiliateAddress);
+        }
+        else {
+            localStorage.setItem("affiliateAddress", process.env.VUE_APP_HOST_CONTRACT);
         }
 
         console.log(`Affiliate: ${this.$route.params.affiliateAddress}`);

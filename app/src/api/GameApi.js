@@ -14,7 +14,8 @@ export const gameApi = {
           "gamePot": parseInt(result.decoded.output.value0.gamePot),
           "errorRate": parseInt(result.decoded.output.value0.errorRate),
           "gameCompleted": parseInt(result.decoded.output.value0.gameCompleted),
-          "initialBalance": parseInt(result.decoded.output.value0.initialBalance)
+          "initialBalance": parseInt(result.decoded.output.value0.initialBalance),
+          "claimCost": parseInt(result.decoded.output.value0.claimCost)
         }
     },
 }

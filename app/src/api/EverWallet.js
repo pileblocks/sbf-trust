@@ -77,7 +77,7 @@ export const EverWalletApi = {
                     bounce: true,
                 });
         },
-        claimTokens: async function (currentWalletAddress, playerAddress) {
+        claimTokens: async function (currentWalletAddress, playerAddress, claimCost) {
             const ever = new ProviderRpcClient({});
             const fWallet = new ever.Contract(FarmingWalletContract.abi, currentWalletAddress);
             const pAddress = new Address(playerAddress);
@@ -86,7 +86,7 @@ export const EverWalletApi = {
                 .claimTokens({})
                 .send({
                     from: pAddress,
-                    amount: '500000000',
+                    amount: claimCost.toString(),
                     bounce: true,
                 });
         },

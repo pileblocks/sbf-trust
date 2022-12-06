@@ -32,11 +32,17 @@
 
                 </tbody>
               </table>
+
             <div v-if="$store.state.Player.isJoined && $store.state.Game.computedStatus === 'ACTIVE'">
                     <button type="button" class="btn btn-light" :disabled="!$store.state.Player.isDepo" v-on:click="withdrawTokens">
                         Withdraw <fancy-number :value="$store.state.Player.withdrawAmount"/>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" :style="'width: ' + calculateClaimCost + '%'" :aria-valuenow="calculateClaimCost" aria-valuemin="0" :aria-valuemax="calculateMaxClaimValue"></div>
+                    </div>
                     </button>
             </div>
+
+
             <div class="text-start mt-4 mt-md-3">
               <p class="mb-0"><b>Current Pot</b>: <fancy-number :value="$store.state.Game.balance"/> EVER</p>
               <p class="mb-0"><b>Status: </b>
@@ -73,7 +79,7 @@
 
 <script>
 import FancyNumber from "@/components/FancyNumber";
-import {GAME_ACTIVE} from "@/AppConst";
+import {CLAIM_COST_MAX, GAME_ACTIVE, MIN_MSG_VALUE} from "@/AppConst";
 import {EverWalletApi} from "@/api/EverWallet";
 export default {
     name: "GameInfo",
@@ -96,7 +102,7 @@ export default {
             this.$store.commit("Game/updateIsLoading", true);
             try {
                 await EverWalletApi.farmingWallet.claimTokens(this.$store.state.Player.farmingWallet,
-                    this.$store.state.Wallet.address);
+                    this.$store.state.Wallet.address, this.$store.state.Game.claimCost);
             } catch (e) {
                 this.$store.commit("Game/updateIsLoading", false);
             }
@@ -106,6 +112,14 @@ export default {
         }
 
     },
+    computed: {
+        calculateClaimCost: function() {
+            return (CLAIM_COST_MAX + MIN_MSG_VALUE - this.$store.state.Game.claimCost) * 100 / CLAIM_COST_MAX;
+        },
+        calculateMaxClaimValue: function () {
+            return (CLAIM_COST_MAX - MIN_MSG_VALUE) * 100 / CLAIM_COST_MAX;
+        }
+    }
 
 
 }
@@ -119,5 +133,11 @@ export default {
 .status-pending {
     color: var(--bs-gray-500);
     font-weight: bold;
+}
+.progress {
+    height: 0.25em;
+}
+.progress-bar {
+    background: linear-gradient(45deg, #2937f0, #9f1ae2) !important;
 }
 </style>

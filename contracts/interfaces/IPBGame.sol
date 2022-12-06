@@ -8,6 +8,6 @@ interface IPBGame {
     function drainByHost() external view;
     function tokenAdded(address ownerAddress, uint128 amount) external;
     function tokenRemoved(address ownerAddress, uint128 amount) external;
-    function checkStatus(uint128 claimAmount) external responsible returns(uint8);
+    function checkStatus(address ownerAddress, uint128 claimAmount) external responsible returns(uint8);
 
 }

@@ -4,7 +4,6 @@ pragma AbiHeader pubkey;
 
 import "./PBConstants.sol";
 import "./interfaces/IPBGame.sol";
-import "./libraries/ExpMath.sol";
 import "./structures/PBStructs.sol";
 
 contract FarmingWallet is PBConstants {
@@ -62,9 +61,9 @@ contract FarmingWallet is PBConstants {
     }
 
     function claimTokens() external view onlyOwner {
-        require(msg.value >= MIN_WALLET_BALANCE * 5, TOKEN_BALANCE_LOW);
+        require(msg.value >= MIN_WALLET_BALANCE * 2, TOKEN_BALANCE_LOW);
         tvm.rawReserve(MIN_WALLET_BALANCE, 0);
-        IPBGame(game).checkStatus{callback: FarmingWallet.onCheckStatus, flag: 128}(showFarmedTokens(now));
+        IPBGame(game).checkStatus{callback: FarmingWallet.onCheckStatus, flag: 128}(owner, showFarmedTokens(now));
     }
 
     function onCheckStatus(uint8 gameStatus) external {

@@ -9,6 +9,7 @@ struct GameInfo {
     uint8 errorRate;
     uint64 gameCompleted;
     uint128 initialBalance;
+    uint128 claimCost;
 }
 
 struct PlayerStats {

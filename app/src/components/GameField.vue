@@ -134,10 +134,7 @@ export default {
             this.$store.commit("Game/updateIsLoading", true);
 
             let affiliateAddress = localStorage.getItem("affiliateAddress");
-            if (affiliateAddress === null) {
-                affiliateAddress = this.$store.state.Wallet.address;
-            }
-
+            console.log(`Joined with the affiliate: ${affiliateAddress}`);
             try {
                 await EverWalletApi.game.deployFarmingWallet(this.$store.state.Game.account.address,
                     this.$store.state.Wallet.address, affiliateAddress)
