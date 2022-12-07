@@ -113,6 +113,8 @@ contract FarmingWallet is PBConstants {
     }
 
     function showFarmedTokens(uint64 farmTime) public view returns (uint128) {
+        if (farmTime < farmChangeTime)
+            return farmedTokens;
         return farmedTokens + calcFarming(farmTime - farmChangeTime);
     }
 

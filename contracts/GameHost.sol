@@ -79,9 +79,9 @@ contract GameHost is PBConstants {
         gameCode = _gameCode;
     }
 
-    function setGameStatus(uint8 newStatus) external pure externalMsg onlyOwner {
+    function setGameStatus(address gameAddress, uint8 newStatus) external pure externalMsg onlyOwner {
         tvm.accept();
-        IPBGame(msg.sender).setGameStatus{value: 0.1 ton}(newStatus);
+        IPBGame(gameAddress).setGameStatus{value: 0.1 ton}(newStatus);
     }
 
     function setGamePot(uint128 newGamePot) external externalMsg onlyOwner {
