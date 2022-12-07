@@ -65,20 +65,12 @@
                 <div v-if="$store.state.Game.computedStatus === 'COMPLETED'">
                     <div class="card">
                         <div class="card-header">
-                            Breaking News
+                            This game is completed
                         </div>
                         <div class="card-body">
                             <p class="card-text">
-                                Unfortunately, we could not meet your expectations. Please stay assured that this does
-                                not have to do with you personally.
-                            </p>
-                            <p class="card-text">
-                                We understand your frustration and pain and will do our best to figure out the reason of
-                                this tragedy and provide a guidance and assistance. We will do whatever we can to
-                                demonstrate that you always can rely on us as a company. Hard times require party hard.
-                                Don't take it seriously. Tokens are just tokens, relax. We had good times
-                                enjoying them, of course, and there will be no way you can recover your losses
-                                originated during this game.
+                                All good though, I'm excited to announce that the new game is about to start! There is still a plenty of vacant places for you and your friends. Only for the limited time! Profit <b>10% / minute</b> in just a couple of seconds!
+                                Hurry up, click START NEW to jump in.
                             </p>
                             <p>
                                 <b>Note:</b> Reload the page after you start the new game!
