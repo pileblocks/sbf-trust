@@ -59,7 +59,7 @@ contract GameHost is PBConstants {
 
     /*
         @notice Provides the code hash of a particular game code
-        @dev Client apps should filter the contracts by this code and check game address
+        @dev Client app should filter the contracts by this code and check game address
         @dev to find the upcoming games
         @param gameId - ID of a game one wants to deploy
     */
